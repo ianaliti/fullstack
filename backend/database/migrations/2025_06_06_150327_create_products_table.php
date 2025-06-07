@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->decimal('price', 10, 2);
-            $table->boolean('active')->default(true);
             $table->string('image')->nullable();
+            $table->json('features')->nullable();
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
