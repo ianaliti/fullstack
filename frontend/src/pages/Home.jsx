@@ -4,6 +4,7 @@ import Features from "../components/Features";
 import ProductShowcase from "../components/ProductShowcase";
 import Technology from "../components/Technology";
 import Chlorine from "../components/Chlorine";
+import Vitamin from "../components/Vitamin";
 
 
 export default function Home() {
@@ -11,9 +12,10 @@ export default function Home() {
     <main className="main-content">
       <Hero />
       <Chlorine />
-      <Features />
+      <Vitamin />
+      {/* <Features />
       <ProductShowcase />
-      <Technology />
+      <Technology /> */}
     </main>
   );
 }

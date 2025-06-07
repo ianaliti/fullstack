@@ -77,7 +77,7 @@ nav ul {
 /* Hero */
 
 .hero {
-  min-height: 100vh;
+  min-height: 70vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   align-items: center;
@@ -329,3 +329,109 @@ nav ul {
   }
 }
 
+.vitamin-showcase {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.vitamin-power {
+  text-align: center;
+}
+
+.power-circle {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #4c6ef5, #667eea);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(76, 110, 245, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.power-icon {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.power-text {
+  text-align: center;
+  color: white;
+}
+
+.power-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  display: block;
+}
+
+.power-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.power-description {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 600;
+}
+
+/* Vitamin Process */
+.vitamin-process {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.process-step {
+  text-align: center;
+  flex: 1;
+}
+
+.step-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #4c6ef5, #667eea);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(76, 110, 245, 0.2);
+}
+
+.process-step h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.process-step p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.process-arrow {
+  font-size: 2rem;
+  color: #4c6ef5;
+  margin: 1rem 1rem;
+  font-weight: bold;
+}
