@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 
 export default function Hero() {
   return (
-    <div className="hero" id="hero">
+    <section className="hero" id="hero">
       <div className="hero-bg">
         <div className="container">
           <div className="hero-content">
@@ -49,6 +49,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
