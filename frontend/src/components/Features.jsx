@@ -1,59 +1,81 @@
-import { Droplets, Heart, Sparkles, Star } from "lucide-react";
-import React from "react";
+import { Check, Shield } from "lucide-react";
+import React, { useState } from "react";
 
-export default function Vitamin() {
+export default function Features() {
+  const [activeFeature, setActiveFeature] = useState(0);
+
+  const features = [
+    {
+      title: "Powerful chlorine removal",
+      description: "DELETE button to clear residual chlorine",
+    },
+    {
+      title: "Micro-sediments protection",
+      description: "Filters out heavy metals, dust and fine impurities",
+    },
+    {
+      title: "Glycerin moisturizing",
+      description: "Helps to build skin barriers and maintain moisture",
+    },
+    {
+      title: "Cornstarch smoothing",
+      description: "Makes skin softer and suppresses trouble",
+    },
+  ];
+
   return (
-    <section className="vitamin-section" id="features">
+    <section className="features-section">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">
-            Title
-          </h2>
-          <p className="section-subtitle">
-            Subtitle
-          </p>
-          <p className="section-description">
-            Description
-          </p>
+        <h2 className="section-title">Advanced Protection Features</h2>
+
+        <div className="features-tabs">
+          {features.map((feature, index) => (
+              <button
+                key={index}
+                className={`feature-tab ${activeFeature === index ? 'active' : ''}`}
+                onClick={() => setActiveFeature(index)}
+              >
+                {feature.title}
+              </button>
+            ))}
         </div>
 
-        <div className="vitamin-showcase">
-          <div className="vitamin-power">
-            <div className="power-circle">
-              <Sparkles className="power-icon" />
-              <div className="power-text">
-                <span className="power-number">800x</span>
-                <span className="power-label">vitamin power</span>
+        <div className="feature-content">
+          <div className="feature-details">
+            <h3>{features[activeFeature]?.title}</h3>
+            <p>{features[activeFeature]?.description}</p>
+
+            <div className="feature-benefits">
+              <div className="benefit-item">
+                <Check className="benefit-icon" />
+                <span>Instant protection</span>
+              </div>
+              <div className="benefit-item">
+                <Check className="benefit-icon" />
+                <span>Long-lasting effect</span>
+              </div>
+              <div className="benefit-item">
+                <Check className="benefit-icon" />
+                <span>Safe for all skin types</span>
               </div>
             </div>
-            <p className="power-description">
-              {vitaminData?.vitamin_section.vitamin_power}
-            </p>
           </div>
 
-          <div className="vitamin-process">
-            <div className="process-step">
-              <div className="step-icon">
-                <Droplets />
+          <div className="feature-visual">
+            <div className="protection-shield">
+              <Shield size={120} className="shield-icon" />
+              <div className="protection-particles">
+                {[...Array(8)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="particle"
+                    style={{
+                      transform: `rotate(${i * 45}deg) translateX(80px)`,
+                      animationDelay: `${i * 0.1}s`,
+                    }}
+                  />
+                ))}
               </div>
-              <h4>Ultra-concentrated</h4>
-              <p>Vitamin gel technology</p>
-            </div>
-            <div className="process-arrow">→</div>
-            <div className="process-step">
-              <div className="step-icon">
-                <Heart />
-              </div>
-              <h4>Direct application</h4>
-              <p>Concentrated on skin</p>
-            </div>
-            <div className="process-arrow">→</div>
-            <div className="process-step">
-              <div className="step-icon">
-                <Star />
-              </div>
-              <h4>Refreshing result</h4>
-              <p>Healthy skin barrier</p>
             </div>
           </div>
         </div>

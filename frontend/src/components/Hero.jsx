@@ -1,15 +1,16 @@
 import axios from "axios";
 import { Droplets, Shield } from "lucide-react";
-import React, { useEffect } from "react";
+import React from "react";
 
 export default function Hero() {
+
   return (
     <section className="hero" id="hero">
       <div className="hero-bg">
         <div className="container">
           <div className="hero-content">
-            <h1 className="hero-title">Title</h1>
-            <p className="hero-subtitle">Subtitle</p>
+            <h1 className="hero-title">An invisible trouble maker</h1>
+            <p className="hero-subtitle">A skin barrier that defends harmful substances and protects moisture in the skin.</p>
 
             <div className="problems-grid">
               <div className="hero__problems">

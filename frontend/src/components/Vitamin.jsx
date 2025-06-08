@@ -7,13 +7,13 @@ export default function Vitamin() {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">
-            Title
+            Vitamin, concentrate on your skin
           </h2>
           <p className="section-subtitle">
-            Subtitle
+            Square's vitamin enrichment technology.
           </p>
           <p className="section-description">
-            Description
+            Directly and concentrate the refreshing vitamin on the skin with an ultra-concentrated vitamin gel.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ export default function Vitamin() {
               </div>
             </div>
             <p className="power-description">
-              Vitamin_power
+              800 times the amount of vitamin in a lemon
             </p>
 
           </div>

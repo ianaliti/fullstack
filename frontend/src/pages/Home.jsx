@@ -1,8 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
-import ProductShowcase from "../components/ProductShowcase";
-import Technology from "../components/Technology";
+import Product from "../components/Product";
 import Chlorine from "../components/Chlorine";
 import Vitamin from "../components/Vitamin";
 
@@ -13,9 +12,8 @@ export default function Home() {
       <Hero />
       <Chlorine />
       <Vitamin />
-      {/* <Features />
-      <ProductShowcase />
-      <Technology /> */}
+      <Features />
+      <Product />
     </main>
   );
 }
