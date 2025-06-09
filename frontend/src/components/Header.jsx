@@ -13,7 +13,6 @@ export default function Header() {
           <ul>
             <li><a href="#home"></a>Home</li>
             <li><a href="#features">Features</a></li>
-            <li><a href="#technology">Technology</a></li>
             <li><a href="#products">Products</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>

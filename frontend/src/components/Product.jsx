@@ -99,7 +99,8 @@ export default function Product() {
               {visibleProducts.map((product, index) => (
                 <div key={`${product.id}-${index}`} className="product-card">
                   <div className="product-image">
-                    <Droplets size={80} className="product-icon" />
+                    {/* <Droplets size={80} className="product-icon" /> */}
+                    <img src={product.image} alt={product.name} className="product-icon"/>
                   </div>
                   <h3>{product.name}</h3>
                   <div className="product-features">
