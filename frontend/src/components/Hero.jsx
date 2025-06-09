@@ -1,5 +1,4 @@
-import axios from "axios";
-import { Droplets, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
 import React from "react";
 
 export default function Hero() {

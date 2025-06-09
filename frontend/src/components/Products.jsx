@@ -1,11 +1,14 @@
 import axios from "axios";
-import { Check, ChevronLeft, ChevronRight, Droplets } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Product() {
   const [products, setProducts] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(3);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -78,6 +81,10 @@ export default function Product() {
 
   const visibleProducts = getVisibleProducts();
 
+  const handleProductClick = (productId) => {
+    navigate(`/products/${productId}`);
+  };
+
   return (
     <section className="products-section" id="products">
       <div className="container">
@@ -117,7 +124,7 @@ export default function Product() {
                     )}
                   </div>
                   <div className="product-price">${product.price}</div>
-                  <button className="product-button">Order Now</button>
+                  <button onClick={() => handleProductClick(product.id)} className="product-button">Order Now</button>
                 </div>
               ))}
             </div>

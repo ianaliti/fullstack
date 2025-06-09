@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
-import Product from "../components/Product";
+import Product from "../components/Products";
 import Chlorine from "../components/Chlorine";
 import Vitamin from "../components/Vitamin";
 
