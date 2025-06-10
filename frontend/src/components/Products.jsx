@@ -36,30 +36,30 @@ export default function Product() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  useEffect(() => {
-    if (!products || products.length === 0) return;
+  // useEffect(() => {
+  //   if (!products || products.length === 0) return;
 
-    const autoSlide = setInterval(() => {
-      setCurrentIndex(prevIndex => {
-        const nextIndex = prevIndex + 1;
-        if (nextIndex >= products.length) {
-          return 0;
-        }
-        return nextIndex;
-      });
-    }, 3000); 
+  //   const autoSlide = setInterval(() => {
+  //     setCurrentIndex(prevIndex => {
+  //       const nextIndex = prevIndex + 1;
+  //       if (nextIndex >= products.length) {
+  //         return 0;
+  //       }
+  //       return nextIndex;
+  //     });
+  //   }, 3000); 
 
-    return () => clearInterval(autoSlide);
-  }, [products]);
+  //   return () => clearInterval(autoSlide);
+  // }, [products]);
 
    const nextSlide = () => {
     if (!products || products.length === 0) return;
-    setCurrentIndex(prev => (prev + 1) % products.length);
+    setCurrentIndex(prev => prev + 1 > products.length - itemsPerView ? 0 : prev + 1);
   };
 
   const prevSlide = () => {
     if (!products || products.length === 0) return;
-    setCurrentIndex(prev => (prev - 1 + products.length) % products.length);
+    setCurrentIndex(prev => prev - 1 < 0 ? products.length - itemsPerView : prev - 1);
   };
 
   const goToSlide = (index) => {
@@ -72,9 +72,7 @@ export default function Product() {
     const visible = [];
     for (let i = 0; i < itemsPerView; i++) {
       const index = (currentIndex + i) % products.length;
-      if (products[index]) {
-        visible.push(products[index]);
-      }
+      visible.push(products[index]);   
     }
     return visible;
   };
@@ -82,7 +80,11 @@ export default function Product() {
   const visibleProducts = getVisibleProducts();
 
   const handleProductClick = (productId) => {
+    if (productId) {
     navigate(`/products/${productId}`);
+  } else {
+    console.error('Product ID is undefined');
+  }
   };
 
   return (

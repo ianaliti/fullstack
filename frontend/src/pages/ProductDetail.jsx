@@ -1,27 +1,33 @@
 import axios from 'axios';
 import { ArrowLeft, Award, Droplets, Heart, Share2, Shield, ShoppingCart, Star, Truck } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function ProductDetail() {
     
     const [product, setProduct] = useState([]);
 
     const { id } = useParams();
+  
+    const navigate = useNavigate();
 
     useEffect(() => {
-        axios
-        .get(`http://127.0.0.1:8000/api/products/${id}`)
-        .then((response) => setProduct(response.data))
-        .catch((error) => console.error("There was an error fetching the products!", error));
-    }, [id])
+    axios
+      .get(`http://127.0.0.1:8000/api/products/${id}`)
+      .then((response) => {
+        setProduct(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the product!", error);
+        console.log(error.response?.data?.message || "Failed to fetch product");
+      });
+  }, [id]);
 
-    console.log(product);
 
   return (
      <div className="product-detail-page">
         <div className="detail-header">
-        <button className="back-btn">
+        <button onClick={() => navigate('/')} className="back-btn">
           <ArrowLeft size={20} />
           <span>Back to Products</span>
         </button>
@@ -35,9 +41,7 @@ export default function ProductDetail() {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="detail-container">
-        {/* Product Images */}
         <div className="product-images">
           <div className="main-image">
             <img src={product.image} alt={product.name} />

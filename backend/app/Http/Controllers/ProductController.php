@@ -14,6 +14,11 @@ class ProductController extends Controller
 
     public function show($id)
     {
+
+        if (!is_numeric($id)) {
+            return response()->json(['message' => 'Invalid product ID'], 400);
+        }
+
         $product = Product::find($id);
 
         if (!$product) {
