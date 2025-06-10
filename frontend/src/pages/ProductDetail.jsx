@@ -1,17 +1,28 @@
-import axios from 'axios';
-import { ArrowLeft, Award, Droplets, Heart, Share2, Shield, ShoppingCart, Star, Truck } from 'lucide-react';
-import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import axios from "axios";
+import {
+  ArrowLeft,
+  Check,
+  Droplets,
+  Heart,
+  Share2,
+  ShoppingCart,
+  Star,
+} from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import ShippingInfo from "../components/ShippingInfo";
+import DetailedInfoProduct from "../components/DetailedInfoProduct";
 
 export default function ProductDetail() {
-    
-    const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState([]);
 
-    const { id } = useParams();
-  
-    const navigate = useNavigate();
+  console.log(product);
 
-    useEffect(() => {
+  const { id } = useParams();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
     axios
       .get(`http://127.0.0.1:8000/api/products/${id}`)
       .then((response) => {
@@ -23,11 +34,10 @@ export default function ProductDetail() {
       });
   }, [id]);
 
-
   return (
-     <div className="product-detail-page">
-        <div className="detail-header">
-        <button onClick={() => navigate('/')} className="back-btn">
+    <div className="product-detail-page">
+      <div className="detail-header">
+        <button onClick={() => navigate("/")} className="back-btn">
           <ArrowLeft size={20} />
           <span>Back to Products</span>
         </button>
@@ -51,13 +61,12 @@ export default function ProductDetail() {
           </div>
         </div>
 
-
         <div className="product-info">
           <div className="product-header">
             <h1>{product.name}</h1>
             <div className="rating-section">
               <div className="stars">
-                  <Star size={16} />
+                <Star size={16} />
               </div>
             </div>
           </div>
@@ -68,45 +77,42 @@ export default function ProductDetail() {
 
           <p className="product-description">{product.description}</p>
 
+          <div className="key-benefits">
+            <h3>Key Benefits</h3>
+            <div className="benefits-grid">
+              <div className="benefit-item">
+                <Check size={16} />
+                <span>Healthier skin and hair</span>
+              </div>
+              <div className="benefit-item">
+                <Check size={16} />
+                <span>Reduced chlorine odor</span>
+              </div>
+              <div className="benefit-item">
+                <Check size={16} />
+                <span>Softer water feel</span>
+              </div>
+              <div className="benefit-item">
+                <Check size={16} />
+                <span>Enhanced shower experience</span>
+              </div>
+            </div>
+          </div>
 
           <div className="purchase-section">
             <div className="action-buttons">
-              <button className="add-to-cart-btn" >
+              <button className="add-to-cart-btn">
                 <ShoppingCart size={20} />
                 Add to Cart
               </button>
-              <button className="buy-now-btn">
-                Buy Now
-              </button>
+              <button className="buy-now-btn">Buy Now</button>
             </div>
           </div>
 
-          <div className="shipping-info">
-            <div className="shipping-item">
-              <Truck size={20} />
-              <div>
-                <strong>Free Shipping</strong>
-                <span>On orders over $100</span>
-              </div>
-            </div>
-            <div className="shipping-item">
-              <Shield size={20} />
-              <div>
-                <strong>2 Year Warranty</strong>
-                <span>Full coverage included</span>
-              </div>
-            </div>
-            <div className="shipping-item">
-              <Award size={20} />
-              <div>
-                <strong>Certified Quality</strong>
-                <span>ISO 9001 approved</span>
-              </div>
-            </div>
-          </div>
+          <ShippingInfo />
         </div>
       </div>
-
-     </div>
-  )
+       <DetailedInfoProduct features={product.features} />
+    </div>
+  );
 }

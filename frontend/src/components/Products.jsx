@@ -106,7 +106,7 @@ export default function Product() {
           <div className="carousel-wrapper">
             <div className="carousel-track">
               {visibleProducts.map((product, index) => (
-                <div key={`${product.id}-${index}`} className="product-card">
+                <div key={`${product.id}-${index}`} className="product-card" onClick={() => handleProductClick(product.id)}>
                   <div className="product-image">
                     {/* <Droplets size={80} className="product-icon" /> */}
                     <img src={product.image} alt={product.name} className="product-icon"/>
@@ -126,7 +126,7 @@ export default function Product() {
                     )}
                   </div>
                   <div className="product-price">${product.price}</div>
-                  <button onClick={() => handleProductClick(product.id)} className="product-button">Order Now</button>
+                  <button className="product-button">Order Now</button>
                 </div>
               ))}
             </div>

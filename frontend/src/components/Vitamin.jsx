@@ -1,4 +1,4 @@
-import { ArrowBigDown, Droplets, Heart, Sparkles, Star } from "lucide-react";
+import { ArrowRight, Droplets, Heart, Sparkles, Star } from "lucide-react";
 import React from "react";
 
 export default function Vitamin() {
@@ -39,7 +39,7 @@ export default function Vitamin() {
               <h4>Ultra-concentrated</h4>
               <p>Vitamin gel technology</p>
             </div>
-             <ArrowBigDown className="process-arrow" />
+             <ArrowRight className="process-arrow" />
             <div className="process-step">
               <div className="step-icon">
                 <Heart />
@@ -47,7 +47,7 @@ export default function Vitamin() {
               <h4>Direct application</h4>
               <p>Concentrated on skin</p>
             </div>
-            <ArrowBigDown className="process-arrow" />
+            <ArrowRight className="process-arrow" />
             <div className="process-step">
               <div className="step-icon">
                 <Star />
